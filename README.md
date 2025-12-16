@@ -1,68 +1,73 @@
 # Gauss-Seidel Method (Python)
 
-Program numerik sederhana untuk **menyelesaikan sistem persamaan linear** menggunakan **Metode Gauss-Seidel**, dibangun menggunakan **Python** dan **NumPy**.
+A simple numerical program for **solving systems of linear equations** using the **Gauss-Seidel Method**, built with **Python** and **NumPy**.
 
 ---
 
-## Deskripsi Umum Proyek
+## Project Overview
 
-**Gauss-Seidel Method Program** digunakan untuk menghitung solusi sistem persamaan linear secara **iteratif**.  
-Program akan memperbarui nilai setiap variabel dengan memanfaatkan nilai terbaru pada iterasi yang sama hingga solusi **konvergen** atau mencapai batas iterasi maksimum.
+The **Gauss-Seidel Method Program** is used to compute the solution of a system of linear equations **iteratively**.  
+The program updates each variable using the most recent values within the same iteration until the solution **converges** or reaches the maximum number of iterations.
 
-Selain itu, program menampilkan **hasil setiap iterasi** (nilai x) beserta **nilai error** menggunakan norma tak hingga (∞-norm).
-
----
-
-## Tujuan
-
-1. Mengimplementasikan metode iteratif **Gauss-Seidel** menggunakan Python.  
-2. Menyelesaikan sistem persamaan linear berbasis matriks `A` dan vektor `b`.  
-3. Menampilkan proses iterasi dan nilai error untuk memantau konvergensi.  
-4. Menampilkan solusi akhir ketika memenuhi toleransi error.
+In addition, the program displays the **iteration results** (solution vector `x`) along with the **error value** calculated using the infinity norm (∞-norm).
 
 ---
 
-## Fitur Utama
+## Objectives
 
-| Fitur | Deskripsi |
-|------:|-----------|
-| Iterasi Gauss-Seidel | Menghitung solusi secara bertahap (iteratif) |
-| Error Checking | Menggunakan norma tak hingga (∞-norm) |
-| Output Iterasi | Menampilkan nilai x dan error di setiap iterasi |
-| Solusi Akhir | Menampilkan solusi akhir setelah konvergen |
+1. Implement the **Gauss-Seidel iterative method** using Python.  
+2. Solve systems of linear equations based on matrix `A` and vector `b`.  
+3. Display the iteration process and error values to monitor convergence.  
+4. Output the final solution once the error tolerance is satisfied.
 
 ---
 
-## Struktur Data / Parameter
+## Key Features
 
-| Parameter | Tipe | Keterangan |
-|----------|------|------------|
-| `A` | array (n×n) | Matriks koefisien sistem persamaan |
-| `b` | array (n) | Vektor konstanta |
-| `tol` | float | Toleransi error (default `1e-6`) |
-| `max_iter` | int | Batas iterasi maksimum (default `100`) |
+| Feature | Description |
+|-------:|-------------|
+| Gauss-Seidel Iteration | Computes solutions iteratively |
+| Error Checking | Uses infinity norm (∞-norm) |
+| Iteration Output | Displays solution vector and error at each iteration |
+| Final Solution | Outputs the converged solution |
 
 ---
 
-## Contoh Sistem Persamaan
+## Data Structure / Parameters
+
+| Parameter | Type | Description |
+|----------|------|-------------|
+| `A` | array (n×n) | Coefficient matrix of the linear system |
+| `b` | array (n) | Constant vector |
+| `tol` | float | Error tolerance (default `1e-6`) |
+| `max_iter` | int | Maximum number of iterations (default `100`) |
+
+---
+
+## Example System of Equations
+
+The system of equations solved by the program:
+
 
 Sistem persamaan yang diselesaikan (sesuai kode):
 10x + 2y - z = 27
 -3x - 6y + 2z = -61.5
 x + y + 5z = -21.5
 
+## Code Representation
 
-Representasi pada program:
 ```python
 A = np.array([[10, 2, -1],
               [-3, -6, 2],
               [1, 1, 5]], float)
 
 b = np.array([27, -61.5, -21.5], float)
+
 ```
-## Contoh Sistem Persamaan
-Program menampilkan output tiap iterasi:
-Iterasi 1: x = [...], error = ...
-Iterasi 2: x = [...], error = ...
+## Output
+```python
+Iteration 1: x = [...], error = ...
+Iteration 2: x = [...], error = ...
 ...
-Solusi akhir: [...]
+Final solution: [...]
+```
