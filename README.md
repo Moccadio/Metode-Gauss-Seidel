@@ -1,60 +1,68 @@
-# Shoe Laundry API
+# Gauss-Seidel Method (Python)
 
-REST API sederhana untuk layanan **daftar barang cuci sepatu**, dibangun menggunakan **Node.js + Express.js** dan **Supabase** sebagai database.
+Program numerik sederhana untuk **menyelesaikan sistem persamaan linear** menggunakan **Metode Gauss-Seidel**, dibangun menggunakan **Python** dan **NumPy**.
 
 ---
 
 ## Deskripsi Umum Proyek
 
-**Shoe Laundry API** digunakan untuk mengelola data sepatu yang sedang dicuci di sebuah layanan laundry sepatu.  
-API ini memungkinkan pengguna untuk **menambah, membaca, memperbarui, dan menghapus (CRUD)** data sepatu.  
-Selain itu, API juga mendukung **filter berdasarkan status sepatu**, seperti **Sedang Dicuci** atau **Selesai**.
+**Gauss-Seidel Method Program** digunakan untuk menghitung solusi sistem persamaan linear secara **iteratif**.  
+Program akan memperbarui nilai setiap variabel dengan memanfaatkan nilai terbaru pada iterasi yang sama hingga solusi **konvergen** atau mencapai batas iterasi maksimum.
+
+Selain itu, program menampilkan **hasil setiap iterasi** (nilai x) beserta **nilai error** menggunakan norma tak hingga (∞-norm).
 
 ---
 
 ## Tujuan
 
-1. Mengimplementasikan REST API menggunakan **Node.js + Express.js**.  
-2. Menggunakan **Supabase** sebagai backend database.  
-3. Menyediakan **endpoint CRUD** untuk data sepatu laundry.  
-4. Mendukung **filter berdasarkan status cucian**.
+1. Mengimplementasikan metode iteratif **Gauss-Seidel** menggunakan Python.  
+2. Menyelesaikan sistem persamaan linear berbasis matriks `A` dan vektor `b`.  
+3. Menampilkan proses iterasi dan nilai error untuk memantau konvergensi.  
+4. Menampilkan solusi akhir ketika memenuhi toleransi error.
 
 ---
 
 ## Fitur Utama
 
-| Metode | Endpoint         | Deskripsi                                           |
-|-------:|------------------|-----------------------------------------------------|
-| **POST**   | `/api/items`       | Tambah data sepatu baru                             |
-| **GET**    | `/api/items`       | Ambil semua data sepatu atau filter berdasarkan status |
-| **GET**    | `/api/items/:id`   | Ambil data sepatu tertentu berdasarkan ID           |
-| **PUT**    | `/api/items/:id`   | Ubah status atau detail sepatu                      |
-| **DELETE** | `/api/items/:id`   | Hapus data sepatu dari database                     |
+| Fitur | Deskripsi |
+|------:|-----------|
+| Iterasi Gauss-Seidel | Menghitung solusi secara bertahap (iteratif) |
+| Error Checking | Menggunakan norma tak hingga (∞-norm) |
+| Output Iterasi | Menampilkan nilai x dan error di setiap iterasi |
+| Solusi Akhir | Menampilkan solusi akhir setelah konvergen |
 
 ---
 
-## Struktur Data
+## Struktur Data / Parameter
 
-| Kolom           | Tipe Data | Keterangan                        |
-|----------------|----------:|-----------------------------------|
-| `id`           | bigint    | Primary key                       |
-| `nama`         | text      | Nama sepatu                       |
-| `status`       | text      | Status cucian                     |
-| `tanggalMasuk` | date      | Tanggal sepatu masuk laundry      |
-| `tanggalSelesai` | text    | Tanggal sepatu selesai dicuci     |
+| Parameter | Tipe | Keterangan |
+|----------|------|------------|
+| `A` | array (n×n) | Matriks koefisien sistem persamaan |
+| `b` | array (n) | Vektor konstanta |
+| `tol` | float | Toleransi error (default `1e-6`) |
+| `max_iter` | int | Batas iterasi maksimum (default `100`) |
 
 ---
 
-## Contoh Request & Response (Lengkap)
+## Contoh Sistem Persamaan
 
-### 1) POST — Tambah Data Sepatu
-**POST** `http://localhost:3000/api/items`
+Sistem persamaan yang diselesaikan (sesuai kode):
+10x + 2y - z = 27
+-3x - 6y + 2z = -61.5
+x + y + 5z = -21.5
 
-Body Request:
-```json
-{
-  "nama": "Nike Air Max",
-  "status": "Sedang Dicuci",
-  "tanggalMasuk": "2025-10-08",
-  "tanggalSelesai": "-"
-}
+
+Representasi pada program:
+```python
+A = np.array([[10, 2, -1],
+              [-3, -6, 2],
+              [1, 1, 5]], float)
+
+b = np.array([27, -61.5, -21.5], float)
+```
+## Contoh Sistem Persamaan
+Program menampilkan output tiap iterasi:
+Iterasi 1: x = [...], error = ...
+Iterasi 2: x = [...], error = ...
+...
+Solusi akhir: [...]
