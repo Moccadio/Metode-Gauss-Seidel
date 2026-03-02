@@ -56,7 +56,7 @@ x + y + 5z = -21.5
 
 ## Code Representation
 
-```python
+```
 A = np.array([[10, 2, -1],
               [-3, -6, 2],
               [1, 1, 5]], float)
@@ -65,7 +65,7 @@ b = np.array([27, -61.5, -21.5], float)
 
 ```
 ## Output
-```python
+```
 Iteration 1: x = [...], error = ...
 Iteration 2: x = [...], error = ...
 ...
